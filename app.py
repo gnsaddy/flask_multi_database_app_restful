@@ -124,11 +124,11 @@ class ItemSchema(ModelSchema):
 
 
 @app.route('/item', methods=['GET'])
-def Item():
+def item():
     get_item = Items.query.all()
     item_schema = ItemSchema(many=True)
-    item = item_schema.dump(get_item)
-    return make_response(jsonify({"item": item}))
+    it = item_schema.dump(get_item)
+    return make_response(jsonify({"item": it}))
 
 
 @app.route('/item', methods=['POST'])
